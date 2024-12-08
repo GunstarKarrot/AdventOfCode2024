@@ -3,8 +3,15 @@ using System;
 public class Program {
 
     /// <summary>
-    /// Parses the input file.
+    /// Read the file and split columns into two lists
+    ///
+    /// Read in the file and parse the data line by line
+    /// splitting the line by a space and converting the values to integers
+    /// and appending them to listA and listB
     /// </summary>
+    /// <param name="inputFilePath">Path to the input file</param>
+    /// <returns>List of two lists containing the values from the input file</returns>
+    /// <exception cref="Exception">Thrown when the file cannot be read</exception>
     public static List<List<int>> parseInputFile(String inputFilePath) {
         Console.WriteLine("Parsing input file: " + inputFilePath);
         List<List<int>> lists = new List<List<int>>();
@@ -30,9 +37,12 @@ public class Program {
 
     /// <summary>
     /// Builds a count map of the elements in the list
+    ///
+    /// Build a count map of the list by iterating through the list
+    /// and counting the number of times each element appears
     /// </summary>
-    /// <param name="list">List to create count map of</param>
-    /// <returns></returns>
+    /// <param name="list">List of ints to create count map of</param>
+    /// <returns>Dictionary containing the count of each element</returns>
     public static Dictionary<int, int> buildCountMap(List<int> list) {
         Dictionary<int, int> dict = new Dictionary<int, int>();
         foreach(int num in list) {
@@ -46,11 +56,15 @@ public class Program {
     }
 
     /// <summary>
-    /// Finds the sum of the elements in the list multiplied by their count in the countMap
+    /// Find the sum of elements multiplied by their count
+    ///
+    /// Find the sum of the elements in the list multiplied by their count
+    /// by iterating through the list and multiplying the element by its count
+    /// in the map
     /// </summary>
-    /// <param name="list">List to get the adjusted sum for</param>
+    /// <param name="list">List of ints to get the adjusted sum for</param>
     /// <param name="countMap">A map countaining all the counts of elements found in the parallel list</param>
-    /// <returns></returns>
+    /// <returns>Sum of the elements multiplied by their count/returns>
     public static int findSum(List<int> list, Dictionary<int, int> countMap){
         int sum = 0;
         foreach(int element in list) {
