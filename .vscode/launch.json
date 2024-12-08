@@ -5,6 +5,20 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "C#: Debug",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${workspaceFolder}/${relativeFileDirname}/bin/Debug/net6.0/${fileBasenameNoExtension}.dll",
+            "args": [
+                "-i",
+                "${fileDirname}\\inputs.txt"
+            ],
+            "stopAtEntry": false,
+            "console": "integratedTerminal",
+            "preLaunchTask": "build C# project"
+        },
+
+        {
             "name": "Python Debugger: Current File with Arguments",
             "type": "debugpy",
             "request": "launch",
@@ -12,7 +26,7 @@
             "console": "integratedTerminal",
             "args": [
                 "-i",
-                "${fileDirname}/inputs.txt"
+                "${fileDirname}\\inputs.txt"
             ]
         }
     ]
