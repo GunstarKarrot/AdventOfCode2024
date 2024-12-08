@@ -83,20 +83,9 @@ def main():
     totalDistance = 0
 
     # Loop through the lists and find the absolute difference between the two values
-    # distanceList = []
-
-    # Calculate the distance between the two lists
-    # for i in range(len(listA)):
-    #     distanceList.append(abs(listA[i] - listB[i]))
-    # print each list as columns
-    # print("List A\tList B\tDistance")
-    # for i in range(len(listA)):
-    #     print(f"{listA[i]}\t{listB[i]}\t{distanceList[i]}")
-
     for i in range(len(listA)):
         totalDistance += abs(listA[i] - listB[i])
     print(f"Total distance between the two lists: {totalDistance}")
-
 
     countMap = buildCountMap(listB)
     sum = findSum(listA, countMap)
