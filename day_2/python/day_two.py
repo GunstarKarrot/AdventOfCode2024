@@ -120,7 +120,7 @@ def main():
             safeList.append(list)
         else:
             unsafeList.append(list)
-        print(f"List: {list} is {safe}")
+        #print(f"List: {list} is {safe}")
     print(f"Safe count: {safeCount}")
 
     print(f"Engage the Problem Dampener!")
@@ -141,7 +141,7 @@ def main():
             if safe:
                 dampenedSafeCount += 1
                 break
-        print(f"Originally Unsafe List: {list} is {safe}, Dampened Safe Count: {dampenedSafeCount}")
+        #print(f"Originally Unsafe List: {list} is {safe}, Dampened Safe Count: {dampenedSafeCount}")
     print(f"Safe count: {dampenedSafeCount}")
 
     print(f"Strict Safe Count: {safeCount} Dampened Safe Count: {dampenedSafeCount}")

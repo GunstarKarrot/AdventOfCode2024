@@ -57,7 +57,7 @@ namespace DayTwo
         /// <param name="current">Current element in trend</param>
         /// <param name="next">Next element in trend</param>
         /// <returns></returns>
-        public static bool isContinuingTrend(isIncreasing, int current, int next)
+        public static bool isContinuingTrend(bool isIncreasing, int current, int next)
         {
             if(isIncreasing)
             {
@@ -65,7 +65,7 @@ namespace DayTwo
             }
             else
             {
-                return next > current;
+                return current > next;
             }
         }
 
@@ -96,7 +96,7 @@ namespace DayTwo
         public static bool listIsSafe(List<int> list)
         {
             //Check if the list is empty or has two elements that are the same
-            if list.Count > 1 && (list[0] == list[1])
+            if(list.Count > 1 && (list[0] == list[1]))
             {
                 return false;
             }
@@ -104,7 +104,7 @@ namespace DayTwo
             //Check if the list is increasing or decreasing
             bool isIncreasing = list[0] < list[1];
 
-            for (int i = 1; i < list.Count - 1; i++)
+            for (int i = 1; i < list.Count; i++)
             {
                 //Check if the list is still increasing or decreasing
                 if (!isContinuingTrend(isIncreasing, list[i-1], list[i]))
@@ -153,7 +153,7 @@ namespace DayTwo
             {
                 //Check if the list is safe
                 bool isSafe = listIsSafe(list);
-                if(isSafe(list))
+                if(isSafe)
                 {
                     //Increment the safe count and add the list to the safe list
                     safeCount++;
@@ -189,6 +189,7 @@ namespace DayTwo
                     }
                 }
             }
+            Console.WriteLine($"Dampened safe count: {dampenedSafeCount}");
         }
     }
 }
