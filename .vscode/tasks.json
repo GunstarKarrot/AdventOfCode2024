@@ -2,6 +2,32 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "set dotnet version",
+            "type": "shell",
+            "windows": {
+                "command": "${workspaceFolder}/.vscode/set_dotnet_version.bat",
+                "args": [
+                    "${fileDirname}"
+                ]
+            },
+            "linux": {
+                "command": "${workspaceFolder}/.vscode/set_dotnet_version.sh",
+                "args": [
+                    "${fileDirname}"
+                ]
+            },
+            "problemMatcher": [],
+        },
+        {
+            "label": "test store",
+            "command": "echo",
+            "type": "shell",
+            "args": [
+                "${input:fileContent}",
+            ],
+            "dependsOn": "set dotnet version"
+        },
+        {
             "label": "build C# project",
             "command": "dotnet",
             "type": "process",
@@ -14,7 +40,19 @@
                 "kind": "build",
                 "isDefault": true
             },
+            "dependsOn": "test store",
             "detail": "Build the project"
+        }
+    ],
+    "inputs": [
+        {
+          "id": "fileContent",
+          "type": "command",
+          "command": "extension.commandvariable.file.content",
+          "args": {
+            "fileName": "${workspaceFolder}/.vscode/dotnet-version.txt",
+            "keyRemember": "DotnetVersion",
+          }
         }
     ]
 }

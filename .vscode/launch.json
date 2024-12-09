@@ -1,33 +1,54 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
             "name": "C#: Debug",
             "type": "coreclr",
             "request": "launch",
-            "program": "${workspaceFolder}/${relativeFileDirname}/bin/Debug/net6.0/${fileBasenameNoExtension}.dll",
-            "args": [
-                "-i",
-                "${fileDirname}\\inputs.txt"
-            ],
+            "program": "${workspaceFolder}/${relativeFileDirname}/bin/Debug/${input:remember.dotnetVersion}/${fileBasenameNoExtension}.dll",
+            "windows": {
+                "args": [
+                    "-i",
+                    "${fileDirname}\\..\\inputs.txt"
+                ]
+            },
+            "linux": {
+                "args": [
+                    "-i",
+                    "${fileDirname}/../inputs.txt"
+                ]
+            },
             "stopAtEntry": false,
             "console": "integratedTerminal",
-            "preLaunchTask": "build C# project"
+            "preLaunchTask": "build C# project",
+            "env":{ "DOTNET_VERSION": "$DOTNET_VERSION" },
         },
-
         {
             "name": "Python Debugger: Current File with Arguments",
             "type": "debugpy",
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "args": [
-                "-i",
-                "${fileDirname}\\inputs.txt"
-            ]
+            "windows": {
+                "args": [
+                    "-i",
+                    "${fileDirname}\\..\\inputs.txt"
+                ]
+            },
+            "linux": {
+                "args": [
+                    "-i",
+                    "${fileDirname}/../inputs.txt"
+                ]
+            }
+        }
+    ],
+    "inputs": [
+        {
+          "id": "remember.dotnetVersion",
+          "type": "command",
+          "command": "extension.commandvariable.remember",
+          "args": { "key" : "DotnetVersion" }
         }
     ]
 }
