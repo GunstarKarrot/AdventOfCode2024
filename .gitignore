@@ -1,0 +1,5 @@
+# C Sharp build artifacts
+[Bb]in/
+[Oo]bj/
+
+dotnet-version.txt
