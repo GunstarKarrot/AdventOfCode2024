@@ -1,5 +1,5 @@
 import io
-imoort argparse
+import argparse
 
 def parse_args():
     """Parse command line arguments
@@ -8,9 +8,9 @@ def parse_args():
 
     :return args: Arguments passed in from the command line
     """
-    parser = argparse.ArgumentParser(description="Advent of Cod
-e Day 1")                                                          parser.add_argument("-i", "--input", type=str, required=Tru
-e, help="Path to the input file")                                  return parser.parse_args()
+    parser = argparse.ArgumentParser(description="Advent of Code Day 1")                                                          
+    parser.add_argument("-i", "--input", type=str, required=True, help="Path to the input file")
+    return parser.parse_args()
 
 def read_file(file_path):
     """Read the input file
